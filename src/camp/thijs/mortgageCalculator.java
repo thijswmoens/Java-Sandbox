@@ -24,10 +24,18 @@ public class mortgageCalculator {
         double mortgage = calculateMortgage(principal, annualInterestRate, period);
 
         // Step 5: Format Mortgage to currency
-        String totalMortgage = formatToCurrency(mortgage);
-        System.out.println("\n\nMORTGAGE\n________\nMonthly Payments: " + totalMortgage);
+        printMortgagePayments(mortgage);
 
         // Step 6: CaLculate Payment Schedule
+        printPaymentSchedule(principal, annualInterestRate, period);
+    }
+
+    private static void printMortgagePayments(double mortgage) {
+        String totalMortgage = formatToCurrency(mortgage);
+        System.out.println("\n\nMORTGAGE\n________\nMonthly Payments: " + totalMortgage);
+    }
+
+    private static void printPaymentSchedule(int principal, float annualInterestRate, byte period) {
         System.out.println("\nPAYMENT SCHEDULE\n________________\n");
         for(short month = 1; month <= period * MONTHS_IN_YEAR; month++) {
             double paymentSchedule = calculatePaymentSchedule(principal, annualInterestRate, period, month);
