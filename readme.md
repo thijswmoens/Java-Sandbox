@@ -6,8 +6,8 @@ Here are some projects in Java that I've made just to learn Java. You're welcome
 
 
 ## Mortgage Calculator
-Formula for calculating your Mortgage: [Wikihow](https://www.wikihow.com/Calculate-Mortgage-Payments)
-Formula for Payment Schedule: [MTGprofessor.com](https://www.mtgprofessor.com//formulas.htm)
+- Formula for calculating your Mortgage: [Wikihow](https://www.wikihow.com/Calculate-Mortgage-Payments)
+- Formula for Payment Schedule: [MTGprofessor.com](https://www.mtgprofessor.com//formulas.htm)
 
 <br>
 
