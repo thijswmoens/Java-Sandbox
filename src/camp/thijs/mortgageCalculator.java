@@ -8,74 +8,49 @@ public class mortgageCalculator {
 
     public static void main(String[] args) {
         
-        int principal = 0;
-        byte period = 0;
-        float annualInterestRate = 0;
+        // Step 1: Ask for principal from user
+        int principal = (int)readNumber("Principal: ", 1000, 1_000_000);
 
-        // create Scanner object for Input
-        Scanner inputUser = new Scanner(System.in); 
+        // Step 2: Ask for Annual Interest Rate
+        float annualInterestRate = (float)readNumber("Annual Interest Rate: ", 0, 30);
 
-        /*
-         * Step 1: Ask for principal form user
-         */
-         while(true) {
-            System.out.print("Principal (1K - 1M): "); 
-            principal = inputUser.nextInt();
+        // Step 3: Ask for the period in Years
+        byte period = (byte)readNumber("Period (Years): ", 1, 30);
 
-            // Check for valid input
-            if(principal >= 1000 && principal <= 1_000_000) 
-                break;
-            System.out.println("Enter a number between 1,000 and 1,000,000");
-        }
-
-        /*
-         * Step 2: Ask for Annual Interest Rate
-         */
-        while(true) {
-            System.out.print("Annual Interest Rate: ");
-            annualInterestRate = inputUser.nextFloat(); 
-
-            // Check for valid input
-            if(annualInterestRate < 30) 
-                break;              
-            System.out.println("Enter a value greater than 0 and less than or equal to 30");
-        }
-
-
-        /*
-         * Step 3: Ask for the period in Years
-         */
-        while(true) {
-            System.out.print("Period (Years): ");
-            period = inputUser.nextByte(); 
-
-            // Check for valid input
-            if(period <= 30) 
-                break;         
-            
-            System.out.println("Enter a value between 1 and 30");
-        }
-
-        /*
-         * Step 4: Calculate Mortgage
-         */
+        // Step 4: Calculate Mortgage
         double mortgage = calculateMortgage(principal, annualInterestRate, period);
 
-        
-        /*
-         * Step 5: Format Mortgage to currency
-         */
+        // Step 5: Format Mortgage to currency
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         String totalMortgage = currency.format(mortgage);   
         System.out.println("Mortgage: " + totalMortgage);
     }
+
+
+    public static double readNumber(String prompt, double min, double max) {
+
+        Scanner inputUser = new Scanner(System.in); 
+        double value;
+
+        while(true) {
+            System.out.print(prompt);
+            value = inputUser.nextFloat(); 
+
+            // Check for valid input
+            if(value <= max) 
+                break;              
+            System.out.println("Enter a value between " + min + " and " + max);
+        }
+
+        return value;
+    }
+
 
     public static double calculateMortgage(
             int principal, 
             float annualInterest, 
             byte years) {
 
-        // Create constants
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
 
