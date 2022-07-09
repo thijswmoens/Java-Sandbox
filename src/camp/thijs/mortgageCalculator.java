@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 import java.util.Currency;
 
-public class Main {
+public class mortgageCalculator {
 
     public static void main(String[] args) {
 
@@ -55,19 +55,4 @@ public class Main {
         String totalMortgage = currency.format(mortgage);   
         System.out.println("Mortgage: " + totalMortgage);
     }
-
-        // Ask for Principal from user
-        // public int principal() {
-        //     Scanner principalInput = new Scanner(System.in); // create Scanner object for Input
-        //     int principal; // this will be the return variable
-
-        //     try {
-        //         System.out.print("Principal: "); // prompt the user for an input
-        //         principal = Integer.parseInt(principalInput.nextLine()); // Input field for principal
-        //     } finally {
-        //         principalInput.close();
-        //     }
-
-        //     return principal;
-        // }
 }
